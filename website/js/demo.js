@@ -3,7 +3,7 @@
 // Tries the real Flask backend first; falls back to simulation
 // if the backend is unreachable (e.g. static-only deployment).
 // ============================================================
-const API_URL = "http://localhost:5000/predict";
+const API_URL = "/predict";
 
 document.addEventListener('DOMContentLoaded', () => {
   const zone = document.getElementById('uploadZone');
