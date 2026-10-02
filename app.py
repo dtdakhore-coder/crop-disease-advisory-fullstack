@@ -20,7 +20,7 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "model", "crop_disease_model.h5")
 LABELS_PATH = os.path.join(BASE_DIR, "model", "labels.json")
 
-app = Flask(__name__, static_folder="../website", static_url_path="")
+app = Flask(__name__, static_folder="website", static_url_path="")
 CORS(app)  # allow the frontend (file:// or another origin) to call this API
 
 IMG_SIZE = (224, 224)
