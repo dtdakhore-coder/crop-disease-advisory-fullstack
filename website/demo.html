@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Live Demo | CropCare AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      CropCare AI
+    </a>
+    <button class="hamburger">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="models.html">Models</a></li>
+      <li><a href="demo.html">Live Demo</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Live Demo — Crop Health Advisor</h2>
+    <p class="section-sub">Upload a leaf photo (or tap a sample) and see the full flow: detection &#10142; confidence &#10142; fertilizer &amp; care advice.</p>
+
+    <div class="demo-wrap">
+      <div>
+        <div class="upload-zone" id="uploadZone">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+          <h3 style="color:var(--green-800);margin-bottom:6px">Drop a leaf photo here</h3>
+          <p style="color:var(--muted);font-size:.9rem">or click to browse (JPG / PNG)</p>
+          <div class="sample-row">
+            <span class="sample-chip" data-img="assets/leaf1.svg">Sample: spotted leaf</span>
+            <span class="sample-chip" data-img="assets/leaf2.svg">Sample: blotched leaf</span>
+          </div>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" hidden>
+        <div class="preview-box" id="previewBox" style="display:none">
+          <img id="previewImg" alt="Leaf preview">
+        </div>
+        <div class="progress" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
+        <button class="btn btn-primary" id="analyzeBtn" style="width:100%;margin-top:16px" disabled>Analyze Leaf Photo</button>
+      </div>
+
+      <div>
+        <div class="result-card" id="resultCard">
+          <span class="badge-sim">SIMULATED OUTPUT</span>
+          <div class="res-head">
+            <div>
+              <div style="font-size:.85rem;color:var(--muted)" id="resCrop">—</div>
+              <div class="res-disease" id="resDisease">—</div>
+            </div>
+            <div class="conf-pill" id="resConfidence">—</div>
+          </div>
+          <div class="res-section"><h4>About this condition</h4><p id="resDesc">—</p></div>
+          <div class="res-section"><h4>Fertilizer Recommendation</h4><p id="resFertilizer">—</p></div>
+          <div class="res-section"><h4>Nutrient Guidance</h4><p id="resNutrients">—</p></div>
+          <div class="res-section"><h4>Care &amp; Management Tips</h4><ul id="resCare"></ul></div>
+          <div class="disclaimer" style="margin-top:16px"><strong>Important:</strong> This demo shows simulated predictions for demonstration. In the full system, a trained MobileNetV2 / EfficientNet model performs this classification. Always confirm with an agricultural expert before acting on advice.</div>
+        </div>
+        <div id="placeholder" style="text-align:center;color:var(--muted);padding:60px 20px;border:2px dashed #d1d5db;border-radius:16px">
+          <p style="font-size:1.05rem">Your detection result will appear here</p>
+          <p style="font-size:.85rem;margin-top:6px">Crop &middot; Disease &middot; Confidence &middot; Fertilizer &amp; care advice</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>CropCare AI</h4>
+        <p style="font-size:.9rem">An ML-Based Smart Agriculture Decision-Support System for crop disease detection and fertilizer advisory. A screening aid — not a substitute for an agronomist.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="demo.html">Live Demo</a></li>
+          <li><a href="team.html">Team &amp; References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project Team</h4>
+        <ul>
+          <li>Anuj Parihar</li>
+          <li>Aditya Dakhore</li>
+          <li>Abhishek Gupta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">Shri Sant Gajanan Maharaj College of Engineering &copy; <span id="year"></span></div>
+  </div>
+</footer>
+<script src="js/knowledgebase.js"></script>
+<script src="js/main.js"></script>
+<script src="js/demo.js"></script>
+</body>
+</html>

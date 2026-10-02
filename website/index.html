@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>CropCare AI | ML-Based Crop Disease Detection & Fertilizer Advisory</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      CropCare AI
+    </a>
+    <button class="hamburger">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="models.html">Models</a></li>
+      <li><a href="demo.html">Live Demo</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <h1>ML-Based Crop Disease Detection &amp; Fertilizer Advisory System</h1>
+      <p class="lead">An ML-Based Smart Agriculture Decision-Support System. Photograph a leaf, get a quick first opinion on the disease, and receive matched fertilizer and crop-care advice.</p>
+      <a href="demo.html" class="btn btn-primary">Try the Live Demo</a>
+      <a href="how-it-works.html" class="btn btn-outline" style="margin-left:10px">How It Works</a>
+    </div>
+    <div class="hero-card">
+      <h3>Why this problem matters</h3>
+      <ul>
+        <li>&#10007; Spotted too late — damage spreads before symptoms are obvious</li>
+        <li>&#10007; Diseases look alike — similar marks on the leaf</li>
+        <li>&#10007; No expert nearby — quick advice is hard to get in the field</li>
+        <li>&#10007; Money lost — wrong spray, wasted fertilizer, smaller harvest</li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Our Idea in One Picture</h2>
+    <p class="section-sub">Three parts working as a team: See, Decide, Advise.</p>
+    <div class="grid-3">
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg></div>
+        <h3>1. See — Computer Vision</h3>
+        <p>Picks out useful patterns from the leaf photo using image preprocessing and feature extraction.</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
+        <h3>2. Decide — Deep Learning</h3>
+        <p>Transfer learning with MobileNetV2 / EfficientNet names the most likely disease and confidence.</p>
+      </div>
+      <div class="card">
+        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>3. Advise — Knowledge Base</h3>
+        <p>A rule-based database matches crop + disease to fertilizer, nutrient and care tips — easy to update by experts.</p>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:36px">
+      <div class="flow">
+        <div class="flow-box"><b>Farmer</b><span>takes leaf photo</span></div>
+        <div class="flow-arrow">&#10142;</div>
+        <div class="flow-box"><b>Classifier</b><span>crop + disease + confidence</span></div>
+        <div class="flow-arrow">&#10142;</div>
+        <div class="flow-box"><b>Advice</b><span>fertilizer &amp; care tips</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container">
+    <h2 class="section-title">Benefits &amp; Where It Fits</h2>
+    <p class="section-sub">What farmers and students get from it.</p>
+    <div class="grid-4">
+      <div class="card"><h3>Quick Screening</h3><p>A fast first-level identification of common crop diseases from a single photo.</p></div>
+      <div class="card"><h3>Easy to Use</h3><p>Only a photograph is needed — no lab equipment or expert required at first check.</p></div>
+      <div class="card"><h3>Matched Advice</h3><p>Fertilizer, nutrient and care tips are tied to the actual detected crop and disease.</p></div>
+      <div class="card"><h3>Built to Grow</h3><p>Can expand to more crops, diseases, and Marathi / Hindi language support later.</p></div>
+    </div>
+    <div class="disclaimer"><strong>Honest limitation:</strong> Results depend on photo quality and training data. Similar diseases can look alike, advice is general guidance not a prescription, and real use needs field testing and expert review. This system supports a farmer's decision — it does not replace an agronomist.</div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="cta">
+      <h2>Ready to test it?</h2>
+      <p>Upload a leaf photo in the demo and see the full detection-to-advice flow in action.</p>
+      <a href="demo.html" class="btn btn-primary" style="background:#fff;color:var(--green-800)">Open Live Demo</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>CropCare AI</h4>
+        <p style="font-size:.9rem">An ML-Based Smart Agriculture Decision-Support System for crop disease detection and fertilizer advisory. A screening aid — not a substitute for an agronomist.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="demo.html">Live Demo</a></li>
+          <li><a href="team.html">Team &amp; References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project Team</h4>
+        <ul>
+          <li>Anuj Parihar</li>
+          <li>Aditya Dakhore</li>
+          <li>Abhishek Gupta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">Shri Sant Gajanan Maharaj College of Engineering &copy; <span id="year"></span></div>
+  </div>
+</footer>
+<script src="js/knowledgebase.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

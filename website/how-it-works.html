@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>How It Works | CropCare AI</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="index.html">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      CropCare AI
+    </a>
+    <button class="hamburger">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="how-it-works.html">How It Works</a></li>
+      <li><a href="models.html">Models</a></li>
+      <li><a href="demo.html">Live Demo</a></li>
+      <li><a href="team.html">Team</a></li>
+    </ul>
+  </div>
+</nav>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">How It Works, Step by Step</h2>
+    <p class="section-sub">From a leaf in the field to advice on the screen.</p>
+    <div class="grid-2">
+      <div class="card steps">
+        <div class="step"><div class="step-num"></div><div><h4>Take a photo</h4><p>The farmer snaps or uploads a leaf picture in the app.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h4>Clean it up</h4><p>The image is resized and normalized so the model reads it consistently.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h4>Classify</h4><p>The trained model studies the leaf and picks the likely disease.</p></div></div>
+      </div>
+      <div class="card steps">
+        <div class="step"><div class="step-num"></div><div><h4>Score it</h4><p>We get the crop, the disease and a confidence percentage.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h4>Look up advice</h4><p>The database returns fertilizer, nutrient and care guidance.</p></div></div>
+        <div class="step"><div class="step-num"></div><div><h4>Show the result</h4><p>Everything appears on one simple screen.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-white">
+  <div class="container">
+    <h2 class="section-title">System Architecture</h2>
+    <p class="section-sub">Prediction first, advice second. Easy to keep current — advice sits in a database, so experts can update it without retraining the model.</p>
+    <div class="flow">
+      <div class="flow-box"><b>Farmer</b><span>mobile / web</span></div>
+      <div class="flow-arrow">&#10142;</div>
+      <div class="flow-box"><b>Interface</b><span>upload photo</span></div>
+      <div class="flow-arrow">&#10142;</div>
+      <div class="flow-box"><b>Preprocessing</b><span>resize &amp; normalize</span></div>
+      <div class="flow-arrow">&#10142;</div>
+      <div class="flow-box"><b>Classifier</b><span>crop, disease, confidence</span></div>
+      <div class="flow-arrow">&#10142;</div>
+      <div class="flow-box"><b>Database</b><span>fertilizer &amp; care tips</span></div>
+      <div class="flow-arrow">&#10142;</div>
+      <div class="flow-box"><b>Result Screen</b><span>one simple view</span></div>
+    </div>
+    <div class="grid-2" style="margin-top:40px">
+      <div class="card"><h3>What is wrong?</h3><p>The classifier looks at the photo and returns the crop, the disease and a confidence score. That answer becomes the search key for the advisory module.</p></div>
+      <div class="card"><h3>What should be done?</h3><p>The database takes that crop and disease and returns fertilizer, nutrient and management tips, plus a short description of the disease.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Main Components</h2>
+    <p class="section-sub">The building blocks of the system.</p>
+    <div class="grid-3">
+      <div class="card"><h3>User Interface</h3><p>Lets the farmer add a photo and read the outcome easily.</p></div>
+      <div class="card"><h3>Preprocessing</h3><p>Converts the photo into the format the model expects.</p></div>
+      <div class="card"><h3>Classifier</h3><p>Predicts the likeliest disease and gives a confidence value.</p></div>
+      <div class="card"><h3>Recommendation Database</h3><p>Holds crop, disease, nutrient and care information in an organized form.</p></div>
+      <div class="card"><h3>Result Screen</h3><p>Shows the diagnosis, confidence and advice in clear, simple language.</p></div>
+      <div class="card"><h3>Future: Soil Model</h3><p>A soil / nutrient prediction module, added once trustworthy field data is available.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>CropCare AI</h4>
+        <p style="font-size:.9rem">An ML-Based Smart Agriculture Decision-Support System for crop disease detection and fertilizer advisory. A screening aid — not a substitute for an agronomist.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="how-it-works.html">How It Works</a></li>
+          <li><a href="models.html">Models</a></li>
+          <li><a href="demo.html">Live Demo</a></li>
+          <li><a href="team.html">Team &amp; References</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Project Team</h4>
+        <ul>
+          <li>Anuj Parihar</li>
+          <li>Aditya Dakhore</li>
+          <li>Abhishek Gupta</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">Shri Sant Gajanan Maharaj College of Engineering &copy; <span id="year"></span></div>
+  </div>
+</footer>
+<script src="js/knowledgebase.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
