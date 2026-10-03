@@ -1,88 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Live Demo | CropCare AI</title>
+<title>Live Diagnosis & Advisory | CropCare AI</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
 <nav>
   <div class="container nav-inner">
     <a class="logo" href="index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      </div>
       CropCare AI
     </a>
     <button class="hamburger">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="how-it-works.html">How It Works</a></li>
-      <li><a href="models.html">Models</a></li>
-      <li><a href="demo.html">Live Demo</a></li>
-      <li><a href="team.html">Team</a></li>
+      <li><a href="index.html" data-i18n="nav_home">Home</a></li>
+      <li><a href="how-it-works.html" data-i18n="nav_how">How It Works</a></li>
+      <li><a href="models.html" data-i18n="nav_models">Models</a></li>
+      <li><a href="demo.html" class="active" data-i18n="nav_demo">Live Demo</a></li>
+      <li><a href="team.html" data-i18n="nav_team">Team</a></li>
+      <li>
+        <select class="lang-select" id="langSelect">
+          <option value="en">English</option>
+          <option value="hi">हिंदी (Hindi)</option>
+          <option value="mr">मराठी (Marathi)</option>
+        </select>
+      </li>
     </ul>
   </div>
 </nav>
 
 <section>
   <div class="container">
-    <h2 class="section-title">Live Demo — Crop Health Advisor</h2>
-    <p class="section-sub">Upload a leaf photo (or tap a sample) and see the full flow: detection &#10142; confidence &#10142; fertilizer &amp; care advice.</p>
+    <h2 class="section-title" data-i18n="title_demo">Smart Crop Health Diagnosis</h2>
+    <p class="section-sub" data-i18n="sub_demo">Upload a leaf photo or use your device camera to instantly identify crop diseases, get nutrient guidance, and received customized fertilizer recommendations.</p>
 
     <div class="demo-wrap">
-      <div>
+      <!-- UPLOAD CARD -->
+      <div class="upload-card">
         <div class="upload-zone" id="uploadZone">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
-          <h3 style="color:var(--green-800);margin-bottom:6px">Drop a leaf photo here</h3>
-          <p style="color:var(--muted);font-size:.9rem">or click to browse (JPG / PNG)</p>
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 16V4m0 0l-4 4m4-4l4 4"/><path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3"/></svg>
+          <h3 style="color:var(--ink);margin-bottom:6px;font-weight:700" data-i18n="drop_title">Drop leaf photo here</h3>
+          <p style="color:var(--muted);font-size:.9rem" data-i18n="drop_sub">or click to browse from device (JPG / PNG)</p>
           <div class="sample-row">
-            <span class="sample-chip" data-img="assets/leaf1.svg">Sample: spotted leaf</span>
-            <span class="sample-chip" data-img="assets/leaf2.svg">Sample: blotched leaf</span>
+            <span class="sample-chip" data-img="assets/leaf1.svg" data-i18n="sample_1">🍃 Sample: Early Blight</span>
+            <span class="sample-chip" data-img="assets/leaf2.svg" data-i18n="sample_2">🍂 Sample: Leaf Spot</span>
           </div>
         </div>
         <input type="file" id="fileInput" accept="image/*" hidden>
+
         <div class="preview-box" id="previewBox" style="display:none">
           <img id="previewImg" alt="Leaf preview">
         </div>
+
+        <div class="button-row">
+          <button class="btn btn-secondary" id="cameraBtn">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+            <span data-i18n="btn_camera">Snap Camera</span>
+          </button>
+          <button class="btn btn-primary" id="analyzeBtn" disabled>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <span data-i18n="btn_analyze">Analyze Leaf</span>
+          </button>
+        </div>
+
         <div class="progress" id="progressWrap"><div class="progress-bar" id="progressBar"></div></div>
-        <button class="btn btn-primary" id="analyzeBtn" style="width:100%;margin-top:16px" disabled>Analyze Leaf Photo</button>
       </div>
 
+      <!-- RESULTS CARD -->
       <div>
         <div class="result-card" id="resultCard">
           <span class="badge-sim">SIMULATED OUTPUT</span>
           <div class="res-head">
             <div>
-              <div style="font-size:.85rem;color:var(--muted)" id="resCrop">—</div>
+              <div style="font-size:.9rem;color:var(--muted);font-weight:600" id="resCrop">—</div>
               <div class="res-disease" id="resDisease">—</div>
             </div>
             <div class="conf-pill" id="resConfidence">—</div>
           </div>
-          <div class="res-section"><h4>About this condition</h4><p id="resDesc">—</p></div>
-          <div class="res-section"><h4>Fertilizer Recommendation</h4><p id="resFertilizer">—</p></div>
-          <div class="res-section"><h4>Nutrient Guidance</h4><p id="resNutrients">—</p></div>
-          <div class="res-section"><h4>Care &amp; Management Tips</h4><ul id="resCare"></ul></div>
-          <div class="disclaimer" style="margin-top:16px"><strong>Important:</strong> This demo shows simulated predictions for demonstration. In the full system, a trained MobileNetV2 / EfficientNet model performs this classification. Always confirm with an agricultural expert before acting on advice.</div>
+
+          <div class="res-section">
+            <h4 data-i18n="sec_about">About This Condition</h4>
+            <p id="resDesc">—</p>
+          </div>
+
+          <div class="res-section">
+            <h4 data-i18n="sec_fertilizer">Fertilizer Prescription</h4>
+            <p id="resFertilizer">—</p>
+          </div>
+
+          <div class="res-section">
+            <h4 data-i18n="sec_nutrients">Nutrient & Soil Guidance</h4>
+            <p id="resNutrients">—</p>
+          </div>
+
+          <div class="res-section">
+            <h4 data-i18n="sec_care">Farm Care & Management Tips</h4>
+            <ul id="resCare"></ul>
+          </div>
+
+          <!-- Top 3 Probability Section -->
+          <div class="top3-wrap" id="top3Wrap" style="display:none">
+            <h4 style="font-size:.85rem;color:var(--muted);text-transform:uppercase;margin-bottom:8px;font-weight:700" data-i18n="sec_top3">Top Probability Predictions</h4>
+            <div id="top3List"></div>
+          </div>
+
+          <div class="action-bar">
+            <button class="btn btn-secondary" id="printBtn" style="width:100%">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect width="12" height="8" x="6" y="14"/></svg>
+              <span data-i18n="btn_print">Print / Download PDF Report</span>
+            </button>
+          </div>
+
+          <div class="disclaimer" style="margin-top:20px;font-size:.82rem;color:#78350f;background:#fffbeb;padding:12px 16px;border-radius:10px;border-left:4px solid var(--accent)">
+            <strong>Notice:</strong> This AI decision aid provides screening recommendations. Consult an agricultural extension officer or agronomist for critical field decisions.
+          </div>
         </div>
-        <div id="placeholder" style="text-align:center;color:var(--muted);padding:60px 20px;border:2px dashed #d1d5db;border-radius:16px">
-          <p style="font-size:1.05rem">Your detection result will appear here</p>
-          <p style="font-size:.85rem;margin-top:6px">Crop &middot; Disease &middot; Confidence &middot; Fertilizer &amp; care advice</p>
+
+        <div id="placeholder" style="text-align:center;color:var(--muted);padding:70px 20px;border:2px dashed #cbd5e1;border-radius:var(--radius-xl);background:#fff">
+          <div style="width:56px;height:56px;border-radius:50%;background:#f1f5f9;display:flex;align-items:center;justify-content:center;margin:0 auto 16px">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+          </div>
+          <p style="font-size:1.1rem;font-weight:700;color:var(--ink)" data-i18n="ph_title">Your Detection Result Will Appear Here</p>
+          <p style="font-size:.9rem;margin-top:6px;color:var(--muted)" data-i18n="ph_sub">Crop identification &middot; Disease severity &middot; Fertilizer &amp; care guide</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- LIVE CAMERA MODAL -->
+<div class="modal" id="cameraModal">
+  <div class="modal-card">
+    <h3 style="margin-bottom:14px;color:var(--ink)" data-i18n="cam_title">Position Leaf in Camera</h3>
+    <video class="camera-video" id="cameraVideo" autoplay playsinline></video>
+    <canvas id="cameraCanvas" style="display:none"></canvas>
+    <div style="display:flex;gap:10px;margin-top:16px">
+      <button class="btn btn-secondary" id="closeCameraBtn" style="flex:1" data-i18n="cam_cancel">Cancel</button>
+      <button class="btn btn-primary" id="captureBtn" style="flex:1" data-i18n="cam_capture">Capture Photo</button>
+    </div>
+  </div>
+</div>
+
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
         <h4>CropCare AI</h4>
-        <p style="font-size:.9rem">An ML-Based Smart Agriculture Decision-Support System for crop disease detection and fertilizer advisory. A screening aid — not a substitute for an agronomist.</p>
+        <p style="font-size:.92rem;line-height:1.6">An ML-Based Smart Agriculture Decision-Support System for precision crop disease diagnosis and fertilizer advisory.</p>
       </div>
       <div>
         <h4>Quick Links</h4>
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="models.html">Models</a></li>
           <li><a href="demo.html">Live Demo</a></li>
@@ -101,6 +178,7 @@
     <div class="footer-bottom">Shri Sant Gajanan Maharaj College of Engineering &copy; <span id="year"></span></div>
   </div>
 </footer>
+
 <script src="js/knowledgebase.js"></script>
 <script src="js/main.js"></script>
 <script src="js/demo.js"></script>

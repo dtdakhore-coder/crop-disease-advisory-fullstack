@@ -4,18 +4,25 @@
 <title>CropCare AI | ML-Based Crop Disease Detection & Fertilizer Advisory</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+
+<!-- NAVBAR -->
 <nav>
   <div class="container nav-inner">
     <a class="logo" href="index.html">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      <div class="logo-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22V10"/><path d="M12 10C12 5 8 3 3 3c0 5 4 7 9 7z"/><path d="M12 14c0-4 3.5-6 9-6 0 4.5-3.5 6-9 6z"/></svg>
+      </div>
       CropCare AI
     </a>
     <button class="hamburger">&#9776;</button>
     <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="how-it-works.html">How It Works</a></li>
       <li><a href="models.html">Models</a></li>
       <li><a href="demo.html">Live Demo</a></li>
@@ -24,93 +31,136 @@
   </div>
 </nav>
 
+<!-- HERO -->
 <header class="hero">
   <div class="container hero-grid">
     <div>
-      <h1>ML-Based Crop Disease Detection &amp; Fertilizer Advisory System</h1>
-      <p class="lead">An ML-Based Smart Agriculture Decision-Support System. Photograph a leaf, get a quick first opinion on the disease, and receive matched fertilizer and crop-care advice.</p>
-      <a href="demo.html" class="btn btn-primary">Try the Live Demo</a>
-      <a href="how-it-works.html" class="btn btn-outline" style="margin-left:10px">How It Works</a>
+      <div class="hero-badges">
+        <span class="hero-badge">⚡ MobileNetV2 Deep Learning</span>
+        <span class="hero-badge">🛡️ Plant Gatekeeper</span>
+        <span class="hero-badge">🌱 Precision Advisory</span>
+      </div>
+      <h1>Smart Crop Disease <span>Diagnosis &amp; Fertilizer</span> Advisory</h1>
+      <p class="lead">An AI-powered agricultural decision-support system. Upload or snap a leaf photo to identify diseases instantly and receive agronomic fertilizer prescriptions and farm care guidance.</p>
+      <div style="display:flex;gap:14px;flex-wrap:wrap">
+        <a href="demo.html" class="btn btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Launch Live Diagnosis
+        </a>
+        <a href="how-it-works.html" class="btn btn-outline">Explore Pipeline</a>
+      </div>
     </div>
-    <div class="hero-card">
-      <h3>Why this problem matters</h3>
-      <ul>
-        <li>&#10007; Spotted too late — damage spreads before symptoms are obvious</li>
-        <li>&#10007; Diseases look alike — similar marks on the leaf</li>
-        <li>&#10007; No expert nearby — quick advice is hard to get in the field</li>
-        <li>&#10007; Money lost — wrong spray, wasted fertilizer, smaller harvest</li>
+    
+    <div class="card" style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.18);backdrop-filter:blur(10px);color:#fff">
+      <h3 style="color:#6ee7b7;font-size:1.15rem;margin-bottom:14px">Why Farmers Need This</h3>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:12px;font-size:.95rem;color:#e2e8f0">
+        <li style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#f87171;font-weight:700">✕</span> Late Detection — disease spreads silently before visible damage is noticed.
+        </li>
+        <li style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#f87171;font-weight:700">✕</span> Confusing Symptoms — fungal and bacterial leaf spots look identical.
+        </li>
+        <li style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#f87171;font-weight:700">✕</span> Expert Scarcity — field agronomists cannot visit every farm on time.
+        </li>
+        <li style="display:flex;align-items:flex-start;gap:10px">
+          <span style="color:#34d399;font-weight:700">✓</span> <b>CropCare Solution:</b> Instant 2-second AI screening right in the field.
+        </li>
       </ul>
     </div>
   </div>
 </header>
 
+<!-- THREE PILLARS -->
 <section>
   <div class="container">
-    <h2 class="section-title">Our Idea in One Picture</h2>
-    <p class="section-sub">Three parts working as a team: See, Decide, Advise.</p>
+    <h2 class="section-title">End-to-End Precision Architecture</h2>
+    <p class="section-sub">A cohesive 3-stage intelligence engine designed for rapid farm field triage.</p>
+    
     <div class="grid-3">
       <div class="card">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg></div>
-        <h3>1. See — Computer Vision</h3>
-        <p>Picks out useful patterns from the leaf photo using image preprocessing and feature extraction.</p>
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg>
+        </div>
+        <h3 style="color:var(--ink);font-size:1.2rem;margin-bottom:8px">1. Vision &amp; Gatekeeper</h3>
+        <p style="color:var(--muted);font-size:.95rem">Image normalization, color space balancing, and ImageNet zero-shot gatekeeper to verify actual leaf foliage.</p>
       </div>
+
       <div class="card">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg></div>
-        <h3>2. Decide — Deep Learning</h3>
-        <p>Transfer learning with MobileNetV2 / EfficientNet names the most likely disease and confidence.</p>
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 12h8M12 8v8"/></svg>
+        </div>
+        <h3 style="color:var(--ink);font-size:1.2rem;margin-bottom:8px">2. Deep Neural Classifier</h3>
+        <p style="color:var(--muted);font-size:.95rem">Transfer learning via MobileNetV2 with global average pooling to diagnose disease class and probability.</p>
       </div>
+
       <div class="card">
-        <div class="icon-circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
-        <h3>3. Advise — Knowledge Base</h3>
-        <p>A rule-based database matches crop + disease to fertilizer, nutrient and care tips — easy to update by experts.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:36px">
-      <div class="flow">
-        <div class="flow-box"><b>Farmer</b><span>takes leaf photo</span></div>
-        <div class="flow-arrow">&#10142;</div>
-        <div class="flow-box"><b>Classifier</b><span>crop + disease + confidence</span></div>
-        <div class="flow-arrow">&#10142;</div>
-        <div class="flow-box"><b>Advice</b><span>fertilizer &amp; care tips</span></div>
+        <div class="icon-circle">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+        </div>
+        <h3 style="color:var(--ink);font-size:1.2rem;margin-bottom:8px">3. Agronomic Advisory</h3>
+        <p style="color:var(--muted);font-size:.95rem">Automated expert knowledge mapping that generates specific fertilizer NPK formulations, nutrient corrections, and care tips.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section class="bg-white">
+<!-- BENEFITS -->
+<section style="background:#fff;border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="container">
-    <h2 class="section-title">Benefits &amp; Where It Fits</h2>
-    <p class="section-sub">What farmers and students get from it.</p>
+    <h2 class="section-title">Core Agricultural Impact</h2>
+    <p class="section-sub">Engineered to support farmers, agricultural students, and field extension officers.</p>
+    
     <div class="grid-4">
-      <div class="card"><h3>Quick Screening</h3><p>A fast first-level identification of common crop diseases from a single photo.</p></div>
-      <div class="card"><h3>Easy to Use</h3><p>Only a photograph is needed — no lab equipment or expert required at first check.</p></div>
-      <div class="card"><h3>Matched Advice</h3><p>Fertilizer, nutrient and care tips are tied to the actual detected crop and disease.</p></div>
-      <div class="card"><h3>Built to Grow</h3><p>Can expand to more crops, diseases, and Marathi / Hindi language support later.</p></div>
+      <div class="card">
+        <h4 style="color:var(--primary-dark);font-size:1.1rem;margin-bottom:6px">⚡ Instant Diagnosis</h4>
+        <p style="color:var(--muted);font-size:.92rem">Get results in under 2 seconds directly from your phone camera.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--primary-dark);font-size:1.1rem;margin-bottom:6px">🛡️ Anti-False Positive</h4>
+        <p style="color:var(--muted);font-size:.92rem">Built-in gatekeeper rejects non-crop photos like pets and objects.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--primary-dark);font-size:1.1rem;margin-bottom:6px">🧪 NPK Recommendations</h4>
+        <p style="color:var(--muted);font-size:.92rem">Custom fertilizer advice tailored to the diagnosed condition.</p>
+      </div>
+      <div class="card">
+        <h4 style="color:var(--primary-dark);font-size:1.1rem;margin-bottom:6px">🌐 Multilingual Access</h4>
+        <p style="color:var(--muted);font-size:.92rem">Accessible in English, Hindi, and Marathi for local usability.</p>
+      </div>
     </div>
-    <div class="disclaimer"><strong>Honest limitation:</strong> Results depend on photo quality and training data. Similar diseases can look alike, advice is general guidance not a prescription, and real use needs field testing and expert review. This system supports a farmer's decision — it does not replace an agronomist.</div>
+
+    <div class="disclaimer" style="margin-top:36px">
+      <strong>Agro-Advisory Notice:</strong> This system is designed as a primary decision-support and screening aid. For severe field epidemics, always corroborate recommendations with local agricultural extension officers or certified agronomists.
+    </div>
   </div>
 </section>
 
+<!-- CTA -->
 <section>
   <div class="container">
     <div class="cta">
-      <h2>Ready to test it?</h2>
-      <p>Upload a leaf photo in the demo and see the full detection-to-advice flow in action.</p>
-      <a href="demo.html" class="btn btn-primary" style="background:#fff;color:var(--green-800)">Open Live Demo</a>
+      <h2>Ready to Experience Smart Crop Health?</h2>
+      <p style="max-width:560px;margin:0 auto 24px">Test the live neural network model with your own leaf photos or use our pre-loaded samples.</p>
+      <a href="demo.html" class="btn btn-primary" style="background:#fff;color:var(--ink);box-shadow:0 6px 20px rgba(0,0,0,0.15)">
+        Open Live Demo Studio
+      </a>
     </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer>
   <div class="container">
     <div class="footer-grid">
       <div>
         <h4>CropCare AI</h4>
-        <p style="font-size:.9rem">An ML-Based Smart Agriculture Decision-Support System for crop disease detection and fertilizer advisory. A screening aid — not a substitute for an agronomist.</p>
+        <p style="font-size:.92rem;line-height:1.6">An ML-Based Smart Agriculture Decision-Support System for precision crop disease diagnosis and fertilizer advisory.</p>
       </div>
       <div>
         <h4>Quick Links</h4>
         <ul>
+          <li><a href="index.html">Home</a></li>
           <li><a href="how-it-works.html">How It Works</a></li>
           <li><a href="models.html">Models</a></li>
           <li><a href="demo.html">Live Demo</a></li>
@@ -129,6 +179,7 @@
     <div class="footer-bottom">Shri Sant Gajanan Maharaj College of Engineering &copy; <span id="year"></span></div>
   </div>
 </footer>
+
 <script src="js/knowledgebase.js"></script>
 <script src="js/main.js"></script>
 </body>
