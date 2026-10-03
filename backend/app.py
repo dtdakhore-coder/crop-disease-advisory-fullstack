@@ -61,28 +61,58 @@ def load_model():
 
 load_model()
 
+NON_PLANT_WORDS = {
+    "cat", "dog", "cougar", "tiger", "feline", "tabby", "lion", "cheetah", "leopard",
+    "canine", "hound", "terrier", "retriever", "dingo", "car", "vehicle", "wheel",
+    "automobile", "person", "human", "face", "suit", "jersey", "phone", "cellular",
+    "computer", "screen", "keyboard", "bottle", "cup", "chair", "furniture", "shoe",
+    "bird", "horse", "bear", "cattle", "cow", "sheep", "pig", "elephant", "room",
+    "building", "window", "desk", "table", "wall", "cloth", "paper", "book"
+}
+
 def check_is_plant(arr):
     """Checks if the image is a plant leaf or a non-plant object (cat, car, dog, person, etc.)."""
     if gatekeeper_model is None:
+        print("[GATEKEEPER WARNING] Gatekeeper model not loaded, skipping check.")
         return True, "Plant / Leaf", 1.0
     try:
         preds = gatekeeper_model.predict(arr, verbose=0)
         decoded = tf.keras.applications.mobilenet_v2.decode_predictions(preds, top=5)[0]
+        print(f"[GATEKEEPER LOG] Top ImageNet predictions: {[(d[1], round(float(d[2]), 3)) for d in decoded]}")
+
         top_id, top_label, top_conf = decoded[0]
         readable_label = top_label.replace("_", " ").title()
-
         top_label_lower = top_label.lower()
-        is_plant_related = any(w in top_label_lower for w in PLANT_RELATED_WORDS)
 
-        if not is_plant_related and top_conf >= 0.15:
-            # Verify if any plant related class is in top 3 with strong confidence
-            has_plant = any(any(w in d[1].lower() for w in PLANT_RELATED_WORDS) and d[2] > 0.20 for d in decoded[:3])
+        # 1. Direct check: Is top label a known non-plant (animal, vehicle, person)?
+        is_known_non_plant = any(w in top_label_lower for w in NON_PLANT_WORDS)
+        if is_known_non_plant and top_conf >= 0.08:
+            print(f"[GATEKEEPER REJECTED] Non-plant detected: {readable_label} ({top_conf*100:.1f}%)")
+            return False, readable_label, round(float(top_conf) * 100, 1)
+
+        # 2. Check if top 3 predictions are dominated by non-plant objects
+        non_plant_score = sum(d[2] for d in decoded[:3] if any(w in d[1].lower() for w in NON_PLANT_WORDS))
+        if non_plant_score >= 0.15:
+            # find most prominent non-plant name
+            for d in decoded:
+                if any(w in d[1].lower() for w in NON_PLANT_WORDS):
+                    readable_label = d[1].replace("_", " ").title()
+                    break
+            print(f"[GATEKEEPER REJECTED] Non-plant score {non_plant_score*100:.1f}%: {readable_label}")
+            return False, readable_label, round(float(non_plant_score) * 100, 1)
+
+        # 3. Botanical check
+        is_plant_related = any(w in top_label_lower for w in PLANT_RELATED_WORDS)
+        if not is_plant_related and top_conf >= 0.20:
+            has_plant = any(any(w in d[1].lower() for w in PLANT_RELATED_WORDS) and d[2] > 0.15 for d in decoded[:3])
             if not has_plant:
+                print(f"[GATEKEEPER REJECTED] Unrelated object: {readable_label} ({top_conf*100:.1f}%)")
                 return False, readable_label, round(float(top_conf) * 100, 1)
 
+        print(f"[GATEKEEPER PASSED] Verified as plant leaf.")
         return True, "Plant / Leaf", 1.0
     except Exception as e:
-        print(f"Gatekeeper error: {e}")
+        print(f"[GATEKEEPER ERROR] Exception during check: {e}")
         return True, "Plant / Leaf", 1.0
 
 @app.route("/")
